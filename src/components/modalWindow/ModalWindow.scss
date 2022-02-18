@@ -1,0 +1,9 @@
+.comments {
+    margin: 10px 0;
+
+    &__item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
