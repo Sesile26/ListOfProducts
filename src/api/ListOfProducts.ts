@@ -9,7 +9,7 @@ const listOfProducts = [
       height: 300,
     },
     weight: '300g',
-    comments: ['CommentModel', 'CommentModel', 'One more'],
+    comments: ['CommentModel', 'CommentModel4', 'One more'],
   },
   {
     id: 1,
@@ -21,7 +21,7 @@ const listOfProducts = [
       height: 200,
     },
     weight: '200g',
-    comments: ['CommentModel', 'CommentModel'],
+    comments: ['CommentModel1', 'CommentModel', 'add'],
   },
   {
     id: 4,
@@ -33,7 +33,7 @@ const listOfProducts = [
       height: 200,
     },
     weight: '200g',
-    comments: ['CommentModel', 'CommentModel'],
+    comments: ['CommentModel5', 'CommentModel', 'One more'],
   },
   {
     id: 5,
@@ -45,7 +45,7 @@ const listOfProducts = [
       height: 200,
     },
     weight: '200g',
-    comments: ['CommentModel', 'CommentModel'],
+    comments: [],
   },
 ];
 

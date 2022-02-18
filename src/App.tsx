@@ -23,7 +23,7 @@ export const App: React.FC = () => {
   });
 
   const [editState, setEditState] = useState({
-    type: '',
+    type: false,
     id: 0,
     index: -1,
   });
@@ -55,6 +55,7 @@ export const App: React.FC = () => {
       weight: '',
       comments: [],
     });
+    setAddComment('');
   };
 
   const getMaxId = () => {
@@ -98,9 +99,10 @@ export const App: React.FC = () => {
     return true;
   };
 
-  const changeEditType = (type: string) => {
-    if (type === 'Add') {
+  const changeEditType = (type: boolean) => {
+    if (!type) {
       changeVisible('delateButton', true);
+      handleClear();
     }
 
     setEditState(prev => ({
@@ -135,7 +137,7 @@ export const App: React.FC = () => {
   };
 
   const delateProduct = () => {
-    if (editState.type !== 'Edit') {
+    if (!editState.type) {
       return;
     }
 
@@ -145,21 +147,20 @@ export const App: React.FC = () => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    // eslint-disable-next-line
-    console.log('handlesubmit')
-    if (isValidForm() && editState.type === 'Edit') {
+    if (isValidForm() && editState.type) {
       editProduct();
     }
 
-    if (isValidForm() && editState.type === 'Add') {
+    if (isValidForm() && !editState.type) {
       addProduct();
     }
   };
 
   const loadProductDetails = (product: Product, productIndex: number) => {
+    setAddComment('');
     setEditState(prev => ({
       ...prev,
-      type: 'Edit',
+      type: true,
       id: product.id,
       index: productIndex,
     }));
@@ -296,7 +297,7 @@ export const App: React.FC = () => {
         className={classNames('js-modal-trigger', 'button', 'is-primary')}
         data-target="modal-js-example"
         onClick={() => {
-          changeEditType('Add');
+          changeEditType(false);
           changeVisible('modal', true);
         }}
       >
@@ -312,6 +313,7 @@ export const App: React.FC = () => {
         delateProduct={delateProduct}
         addDelateComment={addDelateComment}
         addComment={addComment}
+        editState={editState}
       />
 
       <ModalAceptDelate

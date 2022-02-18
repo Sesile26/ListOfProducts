@@ -22,6 +22,9 @@ type Props = {
   delateProduct: () => void,
   addDelateComment: (type: string, index: number) => void,
   addComment: string,
+  editState: {
+    type: boolean,
+  },
 };
 
 export const ModalWindow: React.FC<Props> = React.memo(
@@ -34,7 +37,11 @@ export const ModalWindow: React.FC<Props> = React.memo(
     delateProduct,
     addDelateComment,
     addComment,
+    editState,
   }) => {
+    // eslint-disable-next-line
+    console.log(editState.type)
+
     return (
       <div className={classNames('modal', { 'is-active': isVisible.modal })}>
         <div className="modal-background"></div>
@@ -97,19 +104,17 @@ export const ModalWindow: React.FC<Props> = React.memo(
 
               <div className="comments">
                 <h2>Comments</h2>
-                {formState.comments.map((comment, index) => (
-                  <>
-                    <div className="box comments__item" key={comment}>
-                      {comment}
-                      <button
-                        type="button"
-                        className="button is-danger"
-                        onClick={() => addDelateComment('delate', index)}
-                      >
-                        Delate
-                      </button>
-                    </div>
-                  </>
+                {editState.type && formState.comments.map((comment, index) => (
+                  <div className="box comments__item" key={comment}>
+                    {comment}
+                    <button
+                      type="button"
+                      className="button is-danger"
+                      onClick={() => addDelateComment('delate', index)}
+                    >
+                      Delate
+                    </button>
+                  </div>
                 ))}
                 <input id="addComment" className="textarea" placeholder="Add new comment" value={addComment} onChange={handlerForm}></input>
                 <button
