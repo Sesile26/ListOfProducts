@@ -2,7 +2,7 @@ const listOfProducts = [
   {
     id: 2,
     imageUrl: 'some url here 2',
-    name: 'Product name 2',
+    name: 'b',
     count: 2,
     size: {
       width: 300,
@@ -14,7 +14,7 @@ const listOfProducts = [
   {
     id: 1,
     imageUrl: 'some url here',
-    name: 'Product name',
+    name: 'a',
     count: 4,
     size: {
       width: 200,
@@ -26,8 +26,8 @@ const listOfProducts = [
   {
     id: 4,
     imageUrl: 'some url here',
-    name: 'Product name 3',
-    count: 23,
+    name: 'g',
+    count: 8,
     size: {
       width: 200,
       height: 200,
@@ -38,8 +38,8 @@ const listOfProducts = [
   {
     id: 5,
     imageUrl: 'some url here',
-    name: 'Product name 3',
-    count: 8,
+    name: 'c',
+    count: 23,
     size: {
       width: 200,
       height: 200,

@@ -32,9 +32,6 @@ export const ProductsList: React.FC<Props> = React.memo(
               <div>
                 {product.weight}
               </div>
-              {/* {product.comments?.map(comment => (
-                <div key={comment}>{comment}</div>
-              ))} */}
               <button
                 type="button"
                 className="js-modal-trigger button is-primary"

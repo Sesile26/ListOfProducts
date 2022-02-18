@@ -63,7 +63,7 @@ export const ModalWindow: React.FC<Props> = React.memo(
                 <label className="label" htmlFor="count">
                   count
                   <div className="control">
-                    <input id="count" className="input" type="text" placeholder="Text input" value={formState.count} onChange={handlerForm}></input>
+                    <input id="count" className="input" type="number" placeholder="Text input" value={formState.count} onChange={handlerForm}></input>
                   </div>
                 </label>
               </div>
@@ -72,7 +72,7 @@ export const ModalWindow: React.FC<Props> = React.memo(
                 <label className="label" htmlFor="width">
                   width
                   <div className="control">
-                    <input id="width" className="input" type="text" placeholder="Text input" value={formState.width} onChange={handlerForm}></input>
+                    <input id="width" className="input" type="number" placeholder="Text input" value={formState.width} onChange={handlerForm}></input>
                   </div>
                 </label>
               </div>
@@ -81,7 +81,7 @@ export const ModalWindow: React.FC<Props> = React.memo(
                 <label className="label" htmlFor="height">
                   height
                   <div className="control">
-                    <input id="height" className="input" type="text" placeholder="Text input" value={formState.height} onChange={handlerForm}></input>
+                    <input id="height" className="input" type="number" placeholder="Text input" value={formState.height} onChange={handlerForm}></input>
                   </div>
                 </label>
               </div>
@@ -123,7 +123,9 @@ export const ModalWindow: React.FC<Props> = React.memo(
 
               <div className="field is-grouped">
                 <div className="control">
-                  <button type="submit" className="button is-success">Save</button>
+                  <button type="submit" className="button is-success">
+                    Save
+                  </button>
                 </div>
                 <div className="control">
                   <button
@@ -135,9 +137,23 @@ export const ModalWindow: React.FC<Props> = React.memo(
                   </button>
                 </div>
                 <div className="control">
-                  <button type="button" className={classNames('button', 'is-danger', { visibleNone: isVisible.delateButton })} onClick={delateProduct}>Delate</button>
+                  <button
+                    type="button"
+                    className={classNames(
+                      'button', 'is-danger', { visibleNone: isVisible.delateButton },
+                    )}
+                    onClick={delateProduct}
+                  >
+                    Delate
+                  </button>
                 </div>
-                <button type="button" className="modal-close is-large" onClick={() => changeVisible('modal', false)}> </button>
+                <button
+                  type="button"
+                  className="modal-close is-large"
+                  onClick={() => changeVisible('modal', false)}
+                >
+                  X
+                </button>
               </div>
             </form>
           </div>

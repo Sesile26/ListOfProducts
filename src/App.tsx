@@ -258,18 +258,19 @@ export const App: React.FC = () => {
     }
   };
 
-  useEffect(() => {
+  const sortByFilter = () => {
     switch (filter) {
       case 'name':
-        return setList(list.sort((a, b) => a.name.localeCompare(b.name)));
+        return setList([...list].sort((a, b) => a.name.localeCompare(b.name)));
       case 'count':
-        return setList(list.sort((a, b) => a.count - b.count));
-
+        return setList([...list].sort((a, b) => a.count - b.count));
       default:
-        return setList(list
-          .sort((a, b) => a.name.localeCompare(b.name))
-          .sort((a, b) => a.count - b.count));
+        return setList([...list]);
     }
+  };
+
+  useEffect(() => {
+    sortByFilter();
   }, [filter]);
 
   return (
@@ -279,6 +280,7 @@ export const App: React.FC = () => {
           value={filter}
           onChange={handleFilter}
         >
+          <option value="" disabled>Select Filter</option>
           <option value="name">Name</option>
           <option value="count">Count</option>
         </select>
